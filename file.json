@@ -1,0 +1,14 @@
+{
+    "User.d77f656d-4f25-4338-9fc4-38df3dd12b8b": {
+        "id": "d77f656d-4f25-4338-9fc4-38df3dd12b8b",
+        "created_at": "2024-06-23T15:57:02.496792",
+        "updated_at": "2024-06-23T15:57:02.501671",
+        "__class__": "User"
+    },
+    "BaseModel.1c6bc534-a2f8-43b6-b6b8-092d37caed10": {
+        "id": "1c6bc534-a2f8-43b6-b6b8-092d37caed10",
+        "created_at": "2024-06-23T15:57:08.469595",
+        "updated_at": "2024-06-23T15:57:08.472488",
+        "__class__": "BaseModel"
+    }
+}
