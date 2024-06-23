@@ -128,7 +128,6 @@ class HBNBCommand(cmd.Cmd):
         if len(args) > 1:
             for arg in args:
                 if "=" in arg:
-                    print("GOOD")
                     attribute, value = arg.split("=")
                     for i in range(1):
                         try:
@@ -147,8 +146,7 @@ class HBNBCommand(cmd.Cmd):
                         value = final_value
                     setattr(new_instance, attribute, value)
         else:
-            print("BAD")
-            return
+            pass
 
         storage.save()
         print(new_instance.id)

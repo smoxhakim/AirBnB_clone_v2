@@ -1,37 +1,28 @@
 {
-    "BaseModel.dedc1c0c-1c48-443d-a5f9-0ef226012a97": {
-        "id": "dedc1c0c-1c48-443d-a5f9-0ef226012a97",
-        "created_at": "2024-06-23T13:48:03.208619",
-        "updated_at": "2024-06-23T13:48:03.208637",
-        "name": "My new home",
+    "User.05084d78-6173-4545-bf97-227cacd172e6": {
+        "id": "05084d78-6173-4545-bf97-227cacd172e6",
+        "created_at": "2024-06-23T15:14:52.132052",
+        "updated_at": "2024-06-23T15:14:52.132070",
+        "__class__": "User"
+    },
+    "BaseModel.24649f66-31fc-4e64-bf7b-654172f2202d": {
+        "id": "24649f66-31fc-4e64-bf7b-654172f2202d",
+        "created_at": "2024-06-23T15:15:04.696650",
+        "updated_at": "2024-06-23T15:15:04.696666",
         "__class__": "BaseModel"
     },
-    "BaseModel.6f9677de-ec6c-4c6f-8f1b-4045dc0dff73": {
-        "id": "6f9677de-ec6c-4c6f-8f1b-4045dc0dff73",
-        "created_at": "2024-06-23T13:48:41.122299",
-        "updated_at": "2024-06-23T13:48:41.122311",
-        "name": "1",
+    "BaseModel.14c0f674-3db9-4cb4-b3fd-eef2f4dd0cc9": {
+        "id": "14c0f674-3db9-4cb4-b3fd-eef2f4dd0cc9",
+        "created_at": "2024-06-23T15:15:15.977686",
+        "updated_at": "2024-06-23T15:15:15.977696",
+        "name": "age",
         "__class__": "BaseModel"
     },
-    "BaseModel.56267467-162a-4a49-bb6d-0c50f162a142": {
-        "id": "56267467-162a-4a49-bb6d-0c50f162a142",
-        "created_at": "2024-06-23T15:04:28.591828",
-        "updated_at": "2024-06-23T15:04:28.591843",
+    "BaseModel.446ab218-e4b2-4e36-b1df-15cc3ecd414a": {
+        "id": "446ab218-e4b2-4e36-b1df-15cc3ecd414a",
+        "created_at": "2024-06-23T15:15:21.561208",
+        "updated_at": "2024-06-23T15:15:21.561218",
         "name": 1,
-        "__class__": "BaseModel"
-    },
-    "BaseModel.534c542c-432a-4ea4-aae2-4de2526fba6a": {
-        "id": "534c542c-432a-4ea4-aae2-4de2526fba6a",
-        "created_at": "2024-06-23T15:04:55.172647",
-        "updated_at": "2024-06-23T15:04:55.172657",
-        "name": 1.222,
-        "__class__": "BaseModel"
-    },
-    "BaseModel.19edf8a8-0d1f-469a-8b18-2ba70bd7c7ec": {
-        "id": "19edf8a8-0d1f-469a-8b18-2ba70bd7c7ec",
-        "created_at": "2024-06-23T15:05:26.923481",
-        "updated_at": "2024-06-23T15:05:26.923491",
-        "name": "oufi i love you",
         "__class__": "BaseModel"
     }
 }
