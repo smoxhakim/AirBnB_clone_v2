@@ -40,26 +40,26 @@ class DBStorage:
             Base.metadata.drop_all(self.__engine)
 
     def all(self, cls=None):
-        """return a dictionary
-        """
-        objs = {}
-        if cls is None:
-            for clas in Base.__subclasses__():
-                table = self.__session.query(clas).all()
-                for obj in table:
-                    key = "{}.{}".format(obj.__class__.__name__, obj.id)
-                    objs[key] = obj
+        """query on the current database session"""
+        obj_list = []
+        if cls:
+            if isinstance(cls, str):
+                try:
+                    cls = globals()[cls]
+                except KeyError:
+                    pass
+            if issubclass(cls, Base):
+                obj_list = self.__session.query(cls).all()
         else:
-            if (cls == "State"):
-                for obj in self.__session.query(classes["State\
-"]).order_by(classes[cls].name.asc()).all():
-                    key = "{}.{}".format(obj.__class__.__name__, obj.id)
-                    objs[key] = obj
-            else:
-                for obj in self.__session.query(classes[cls]).all():
-                    key = "{}.{}".format(obj.__class__.__name__, obj.id)
-                    objs[key] = obj
-        return objs
+            for subclass in Base.__subclasses__():
+                obj_list.extend(self.__session.query(subclass).all())
+
+        obj_dict = dict()
+        for obj in obj_list:
+            key = "{}.{}".format(obj.__class__.__name__, obj.id)
+            obj_dict[key] = obj.to_dict()
+        return obj_dict
+
 
     def new(self, obj):
         """add the object to the current database session"""
