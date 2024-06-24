@@ -6,7 +6,7 @@ from sqlalchemy import String, Column, Integer, ForeignKey, Float
 from os import getenv
 
 
-class Place(BaseModel):
+class Place(BaseModel, Base):
     """ A place to stay """
     __tablename__ = 'places'
     
