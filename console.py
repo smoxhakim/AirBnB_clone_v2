@@ -3,6 +3,7 @@
 import cmd
 import sys
 from models.base_model import BaseModel
+from models.engine.file_storage import FileStorage
 from models.__init__ import storage
 from models.user import User
 from models.place import Place
@@ -10,6 +11,7 @@ from models.state import State
 from models.city import City
 from models.amenity import Amenity
 from models.review import Review
+from os import getenv
 
 
 class HBNBCommand(cmd.Cmd):
@@ -125,30 +127,27 @@ class HBNBCommand(cmd.Cmd):
         else:
             print("** class doesn't exist **")
             return
-        if len(args) > 1:
-            for arg in args:
-                if "=" in arg:
-                    attribute, value = arg.split("=")
-                    for i in range(1):
-                        try:
-                            value = int(value)
-                            break
-                        except ValueError:
-                            pass
-                        try:
-                            value = float(value)
-                            break
-                        except ValueError:
-                            break
-                    if isinstance(value, str):
-                        stripped_value = value.strip("\"")
-                        final_value = stripped_value.replace('_', ' ')
-                        value = final_value
-                    setattr(new_instance, attribute, value)
-        else:
-            pass
 
-        storage.save()
+        for arg in args:
+            if "=" in arg:
+                attribute, value = arg.split("=")
+                for i in range(1):
+                    try:
+                        value = int(value)
+                        break
+                    except ValueError:
+                        pass
+                    try:
+                        value = float(value)
+                        break
+                    except ValueError:
+                        break
+                if isinstance(value, str):
+                    stripped_value = value.strip("\"")
+                    final_value = stripped_value.replace('_', ' ')
+                    value = final_value
+                setattr(new_instance, attribute, value)
+        new_instance.save()
         print(new_instance.id)
 
     def help_create(self):
@@ -180,7 +179,7 @@ class HBNBCommand(cmd.Cmd):
 
         key = c_name + "." + c_id
         try:
-            print(storage._FileStorage__objects[key])
+            print(storage.FileStorage.__objects[key])
         except KeyError:
             print("** no instance found **")
 
@@ -231,11 +230,11 @@ class HBNBCommand(cmd.Cmd):
             if args not in HBNBCommand.classes:
                 print("** class doesn't exist **")
                 return
-            for k, v in storage._FileStorage__objects.items():
+            for k, v in storage.all().items():
                 if k.split('.')[0] == args:
                     print_list.append(str(v))
         else:
-            for k, v in storage._FileStorage__objects.items():
+            for k, v in storage.all().items():
                 print_list.append(str(v))
 
         print(print_list)
