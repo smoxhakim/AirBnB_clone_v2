@@ -57,7 +57,7 @@ class DBStorage:
         obj_dict = dict()
         for obj in obj_list:
             key = "{}.{}".format(obj.__class__.__name__, obj.id)
-            obj_dict[key] = obj.to_dict()
+            obj_dict[key] = obj
         return obj_dict
 
 
