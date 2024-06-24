@@ -2,8 +2,6 @@
 """ Place Module for HBNB project """
 from models.base_model import BaseModel, Base
 from sqlalchemy import String, Column, Integer, ForeignKey, Float
-from os import getenv
-
 
 class Place(BaseModel):
     """ A place to stay """
