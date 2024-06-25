@@ -16,13 +16,12 @@ from models.review import Review
 classes = {"Amenity": Amenity, "City": City, "Place": Place,
            "Review": Review, "State": State, "User": User}
 
+
 class DBStorage:
     """DBStorage class"""
 
     __engine = None
     __session = None
-
-
 
     def __init__(self):
         """init dunder for DBStorage"""
@@ -32,7 +31,8 @@ class DBStorage:
         host = getenv('HBNB_MYSQL_HOST')
         db = getenv('HBNB_MYSQL_DB')
 
-        db_url = "mysql+mysqldb://{}:{}@{}/{}".format(username, password, host, db)
+        db_url = "mysql+mysqldb://{}:{}@{}/{}".format(
+            username, password, host, db)
 
         self.__engine = create_engine(db_url, pool_pre_ping=True)
 
@@ -56,10 +56,11 @@ class DBStorage:
 
         obj_dict = dict()
         for obj in obj_list:
+            if hasattr(obj, '_sa_instance_state'):
+                del obj._sa_instance_state
             key = "{}.{}".format(obj.__class__.__name__, obj.id)
             obj_dict[key] = obj
         return obj_dict
-
 
     def new(self, obj):
         """add the object to the current database session"""
@@ -76,13 +77,7 @@ class DBStorage:
     def reload(self):
         """create all tables in the database"""
         Base.metadata.create_all(self.__engine)
-        session_factory = sessionmaker(bind=self.__engine, expire_on_commit=False)
+        session_factory = sessionmaker(
+            bind=self.__engine, expire_on_commit=False)
         Session = scoped_session(session_factory)
         self.__session = Session()
-
-
-
-
-
-
-
