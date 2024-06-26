@@ -71,7 +71,7 @@ class Place(BaseModel, Base):
         def amenities(self):
             """amenities getter"""
             from models import storage
-            amenities_dict = storage.all(Amenity).items()
+            amenities_dict = storage.all(Amenity).values()
             place_amenities_json = list()
             for amenity in amenities_dict:
                 if amenity.id in self.amenity_ids:
