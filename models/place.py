@@ -68,15 +68,6 @@ class Place(BaseModel, Base):
         amenity_ids = []
 
         @property
-        def reviews(self):
-            """returns the list of Review instances with
-            place_id equals to the current Place.id"""
-            from models import storage
-            file_reviews = storage.all(Review).values()
-            return [review for review in file_reviews
-                    if review.place_id == self.id]
-
-        @property
         def amenities(self):
             """amenities getter"""
             from models import storage
@@ -86,6 +77,16 @@ class Place(BaseModel, Base):
                 if amenity.id in self.amenity_ids:
                     place_amenities_json.append(amenity)
             return place_amenities_json
+
+        @property
+        def reviews(self):
+            """returns the list of Review instances with
+            place_id equals to the current Place.id"""
+            from models import storage
+            file_reviews = storage.all(Review).values()
+            return [review for review in file_reviews
+                    if review.place_id == self.id]
+
 
         @amenities.setter
         def amenities(self, obj):
