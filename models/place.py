@@ -84,8 +84,8 @@ class Place(BaseModel, Base):
             return place_amenities_json
 
         @amenities.setter
-        """amenities setter"""
         def amenities(self, obj):
+            """amenities setter"""
             if isinstance(obj, Amenity):
                 self.amenity_ids.append(obj.id)
             else:
