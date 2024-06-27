@@ -87,7 +87,6 @@ class Place(BaseModel, Base):
             return [review for review in file_reviews
                     if review.place_id == self.id]
 
-
         @amenities.setter
         def amenities(self, obj):
             """amenities setter"""
