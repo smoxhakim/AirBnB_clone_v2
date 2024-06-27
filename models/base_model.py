@@ -18,7 +18,7 @@ class BaseModel:
                         onupdate=datetime.utcnow)
 
     def __init__(self, *args, **kwargs):
-        """Instatntiates a new model"""
+        """Instatntiates a new mode"""
         self.id = str(uuid.uuid4())
         self.created_at = datetime.now()
         self.updated_at = datetime.now()

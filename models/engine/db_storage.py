@@ -56,8 +56,6 @@ class DBStorage:
 
         obj_dict = dict()
         for obj in obj_list:
-            if hasattr(obj, '_sa_instance_state'):
-                del obj._sa_instance_state
             key = "{}.{}".format(obj.__class__.__name__, obj.id)
             obj_dict[key] = obj
         return obj_dict
