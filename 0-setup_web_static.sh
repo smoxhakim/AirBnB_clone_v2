@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# A Bash script that sets up the web servers for the deployment
+#A Bash script that sets up the web servers for the deployment
 
 sudo apt-get -y update
 sudo apt-get -y upgrade
