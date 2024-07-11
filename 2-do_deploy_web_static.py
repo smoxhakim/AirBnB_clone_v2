@@ -2,8 +2,7 @@
 
 """ Fabric script for deploying web_static """
 
-from fabric.api import run, put, env, local, sudo
-from fabric.contrib.files import exists
+from fabric.api import run, put, env, local
 from os.path import exists
 from datetime import datetime
 import os
