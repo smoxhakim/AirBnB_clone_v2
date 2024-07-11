@@ -8,7 +8,7 @@ from datetime import datetime
 import os
 
 env.hosts = ['100.26.250.129', '54.210.53.36']
-"""env.user = 'ubuntu'"""
+env.user = 'ubuntu'
 
 
 def do_pack():
@@ -46,9 +46,10 @@ def do_pack():
 
         return True
     except Exception:
-        return False 
+        return False
 """
-  
+
+
 def do_deploy(archive_path):
     """distributes an archive to the web servers"""
     if exists(archive_path) is False:
@@ -66,5 +67,5 @@ def do_deploy(archive_path):
         run('rm -rf /data/web_static/current')
         run('ln -s {}{}/ /data/web_static/current'.format(path, no_ext))
         return True
-    except:
-        return False        
+    except Exception:
+        return False
