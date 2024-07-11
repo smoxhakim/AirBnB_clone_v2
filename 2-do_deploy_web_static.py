@@ -7,8 +7,9 @@ from os.path import exists
 from datetime import datetime
 import os
 
-env.hosts = ['100.26.250.129', '54.210.53.36']  
-env.user = 'ubuntu'  
+env.hosts = ['100.26.250.129', '54.210.53.36']
+env.user = 'ubuntu'
+
 
 def do_pack():
     """ generates a .tgz archive from the contents of the web_static folder """
@@ -34,13 +35,15 @@ def do_deploy(archive_path):
 
         archive_base = archive_name.split('.')[0]
         run('mkdir -p /data/web_static/releases/{}/'.format(archive_base))
-        run('tar -xzf /tmp/{} -C /data/web_static/releases/{}/'.format(archive_name, archive_base))
+        run('tar -xzf /tmp/{} -C /data/web_static/releases/{}/'
+            .format(archive_name, archive_base))
 
         run('rm /tmp/{}'.format(archive_name))
 
         run('rm /data/web_static/current')
 
-        run('ln -s /data/web_static/releases/{}/ /data/web_static/current'.format(archive_base))
+        run('ln -s /data/web_static/releases/{}/ /data/web_static/current'
+            .format(archive_base))
 
         return True
     except Exception:
