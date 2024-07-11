@@ -14,8 +14,7 @@ env.user = 'ubuntu'
 def do_pack():
     """ generates a .tgz archive from the contents of the web_static folder """
     try:
-        if not exists("versions"):
-            local("mkdir -p versions")
+        local("mkdir -p versions")
         date_time = datetime.now().strftime("%Y%m%d%H%M%S")
         path = "versions/web_static_{}.tgz".format(date_time)
         local("tar -cvzf {} web_static".format(path))
@@ -25,7 +24,7 @@ def do_pack():
 
 
 def do_deploy(archive_path):
-    """ distributes an archive to your web servers """
+    """ deploy an archive to your web servers """
     if not os.path.exists(archive_path):
         return False
 
