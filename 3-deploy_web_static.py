@@ -20,6 +20,7 @@ def do_pack():
     except Exception:
         return None
 
+
 def do_deploy(archive_path):
     """deploy web static with fabric"""
     if exists(archive_path) is False:
