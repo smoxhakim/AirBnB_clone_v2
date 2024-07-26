@@ -9,11 +9,9 @@ db_app = Flask(__name__)
 @db_app.route("/states_list")
 def states():
     """ states list"""
-    states_li = storage.all(State)
-    if states_li:
-        render_template("7-states_list.html", states_li=states_li)
-    else:
-        return "Storage wasn't imported"
+    states = storage.all("State").values()
+    states = sorted(states, key=lambda state: state.name)
+    return render_template('7-states_list.html', states=states)
 
 
 @db_app.teardown_appcontext
