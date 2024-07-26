@@ -25,7 +25,7 @@ def home_args(text):
 @HBNB_app.route("/python/<text>", strict_slashes=False)
 def home_python(text):
     text = text.replace('_', ' ')
-    return "python {}".format(text)
+    return "Python {}".format(text)
 
 
 @HBNB_app.route("/number/<int:n>", strict_slashes=False)
