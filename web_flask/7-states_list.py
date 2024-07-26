@@ -2,6 +2,7 @@
 """flask web application that lists states dynamiclly"""
 from flask import Flask, render_template
 from models import storage
+from models.state import State
 
 db_app = Flask(__name__)
 
