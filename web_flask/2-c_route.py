@@ -1,20 +1,23 @@
 #!/usr/bin/python3
+"""Write a script that starts a Flask web application"""
 from flask import Flask
 
 HBNB_app = Flask(__name__)
 
-@HBNB_app.route("/", strict_slashes=False )
+
+@HBNB_app.route("/", strict_slashes=False)
 def home():
     return "Hello HBNB!"
 
-@HBNB_app.route("/hbnb", strict_slashes=False )
+
+@HBNB_app.route("/hbnb", strict_slashes=False)
 def home_HBNB():
     return "HBNB"
 
-@HBNB_app.route("/c/<text>", strict_slashes=False )
+
+@HBNB_app.route("/c/<text>", strict_slashes=False)
 def home_args(text):
     text = text.replace('_', ' ')
-                
     return "C {}".format(text)
 
 
