@@ -18,14 +18,14 @@ def home_HBNB():
 @HBNB_app.route("/c/<text>", strict_slashes=False)
 def home_args(text):
     text = text.replace('_', ' ')
-    return "<H1>C {}".format(text)
+    return "C {}".format(text)
 
 
 @HBNB_app.route("/python/", defaults={'text': 'is cool'}, strict_slashes=False)
 @HBNB_app.route("/python/<text>", strict_slashes=False)
 def home_python(text):
     text = text.replace('_', ' ')
-    return "<H1>C {}".format(text)
+    return "python {}".format(text)
 
 
 @HBNB_app.route("/number/<int:n>", strict_slashes=False)

@@ -25,8 +25,8 @@ def home_args(text):
 @HBNB_app.route("/python/<text>", strict_slashes=False)
 def home_python(text):
     text = text.replace('_', ' ')
-    return "C {}".format(text)
+    return "python {}".format(text)
 
 
 if __name__ == "__main__":
-    HBNB_app.run(host='0.0.0.0', port=500, debug=True)
+    HBNB_app.run(host='0.0.0.0', port=5000, debug=True)
