@@ -1,9 +1,7 @@
 #!/usr/bin/python3
 """flask web application that lists states dynamiclly"""
 from flask import Flask, render_template
-
 from models import storage
-from models.state import State
 
 db_app = Flask(__name__)
 
@@ -16,6 +14,7 @@ def states():
         render_template("7-states_list.html", states_li=states_li)
     else:
         return "Storage wasn't imported"
+
 
 @db_app.teardown_appcontext
 def close_dataB():
