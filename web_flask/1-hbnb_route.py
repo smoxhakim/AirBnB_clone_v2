@@ -7,12 +7,12 @@ HBNB_app = Flask(__name__)
 
 @HBNB_app.route("/",  strict_slashes=False)
 def home():
-    return "<H1>Hello HBNB!</H1>"
+    return "Hello HBNB!"
 
 
 @HBNB_app.route("/",  strict_slashes=False)
 def home_hbnb():
-    return "<H1>HBNB</H1>"
+    return "HBNB"
 
 
 if __name__ == "__main__":
