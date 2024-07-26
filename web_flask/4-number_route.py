@@ -31,7 +31,7 @@ def home_python(text):
 @HBNB_app.route("/number/<int:n>", strict_slashes=False)
 def home_num(n):
     if (isinstance(n, int)):
-        return "{}".format(n)
+        return "{} is an integer".format(n)
     else:
         abort(404)
 
