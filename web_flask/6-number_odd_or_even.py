@@ -1,58 +1,60 @@
 #!/usr/bin/python3
+"""Write a script that starts a Flask web application"""
 
 from flask import Flask, abort, render_template
 
 HBNB_app = Flask(__name__)
 
-@HBNB_app.route("/", strict_slashes=False )
+
+@HBNB_app.route("/", strict_slashes=False)
 def home():
     return "Hello HBNB!"
 
-@HBNB_app.route("/hbnb", strict_slashes=False )
+
+@HBNB_app.route("/hbnb", strict_slashes=False)
 def home_HBNB():
     return "HBNB"
 
-@HBNB_app.route("/c/<text>", strict_slashes=False )
+
+@HBNB_app.route("/c/<text>", strict_slashes=False)
 def home_args(text):
     text = text.replace('_', ' ')
-                
     return "<H1>C {}".format(text)
 
-@HBNB_app.route("/python/", defaults={'text': 'is cool'}, strict_slashes=False )
-@HBNB_app.route("/python/<text>", strict_slashes=False )
+
+@HBNB_app.route("/python/", defaults={'text': 'is cool'}, strict_slashes=False)
+@HBNB_app.route("/python/<text>", strict_slashes=False)
 def home_python(text):
     text = text.replace('_', ' ')
-                
     return "<H1>C {}".format(text)
 
-@HBNB_app.route("/number/<int:n>", strict_slashes=False )
+
+@HBNB_app.route("/number/<int:n>", strict_slashes=False)
 def home_num(n):
     if (isinstance(n, int)):
         return "<H1>{}</H1>".format(n)
     else:
         abort(404)
-        
-        
-@HBNB_app.route("/number_template/<int:n>", strict_slashes=False )
+
+
+@HBNB_app.route("/number_template/<int:n>", strict_slashes=False)
 def home_temp_num(n):
     if (isinstance(n, int)):
         return render_template("5-number.html", number=n)
     else:
         abort(404)
-        
-        
-@HBNB_app.route("/number_odd_or_even/<int:n>", strict_slashes=False )
+
+
+@HBNB_app.route("/number_odd_or_even/<int:n>", strict_slashes=False)
 def home_odd_or_even(n):
     if (isinstance(n, int)):
         if (n % 2 == 0):
-            reslt = "is even"
+            res = "is even"
         else:
-            reslt = "is odd"
-            
-        return render_template("6-number_odd_or_even.html", number=n, reslt=reslt)
+            res = "is odd"
+        return render_template("6-number_odd_or_even.html", number=n, res=res)
     else:
         abort(404)
-
 
 
 if __name__ == "__main__":
