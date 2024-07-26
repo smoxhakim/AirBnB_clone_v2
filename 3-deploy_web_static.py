@@ -49,14 +49,3 @@ def deploy():
     if archive_path is None:
         return False
     return do_deploy(archive_path)
-
-
-
-
-listen myserver
-        bind *:80
-        bind *:443 ssl crt /etc/haproxy/certs/www.abdelhakim.tech.pem
-        redirect scheme https code 301 if !{ ssl_fc }
-        balance roundrobin
-        server server1 100.26.250.129:80 check
-        server server2 54.210.53.36:80 check
