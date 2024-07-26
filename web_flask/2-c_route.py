@@ -15,8 +15,8 @@ def home_HBNB():
 def home_args(text):
     text = text.replace('_', ' ')
                 
-    return "<H1>C {}".format(text)
+    return "C {}".format(text)
 
 
 if __name__ == "__main__":
-    HBNB_app.run(host='0.0.0.0', port=500, debug=True)
+    HBNB_app.run(host='0.0.0.0', port=5000, debug=True)

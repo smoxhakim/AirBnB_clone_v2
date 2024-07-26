@@ -10,7 +10,7 @@ def home():
     return "Hello HBNB!"
 
 
-@HBNB_app.route("/",  strict_slashes=False)
+@HBNB_app.route("/hbnb",  strict_slashes=False)
 def home_hbnb():
     return "HBNB"
 
